@@ -1,0 +1,15 @@
+std::ifstream is a class in C++ from the <fstream> header,
+which stands for "input file stream." It is used to open and read data from files.
+The object of std::ifstream can be used like a stream to read content from a file in a sequential manner,
+similar to reading input from the console using std::cin.
+
+std::string::npos is a constant member of the std::string class in C++, 
+used to indicate that no match was found or that a certain condition is not met 
+when working with strings. It is often returned by functions like find(), rfind(),
+find_first_of(), and others when the specified substring or character is not found in the string.
+The value of std::string::npos is the largest possible value of type size_t, which is an unsigned integer type.
+Essentially, it's used to represent "not found."
+
+std::ofstream is a class in C++ from the <fstream> header, used for outputting (writing) data to files.
+The class stands for "output file stream." It allows you to open a file and write data into it,
+either overwriting the existing content or appending new content, depending on the file opening mode.
