@@ -24,7 +24,7 @@ int main(int argc, char **argv)
             for (size_t j = 0; j < arg_str.length(); j++) {
                 arg_str[j] = to_upper(arg_str[j]);
             }
-            if (i > 1)
+            if (i > 1 && i < argc)
                 std::cout << " ";
             // Print the uppercase string
             std::cout << arg_str;

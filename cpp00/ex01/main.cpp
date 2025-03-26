@@ -3,7 +3,8 @@
 #include <sstream>  // For std::stringstream
 
 // Function to prompt the user and create a new contact
-Contact createContact() {
+Contact createContact()
+{
     Contact contact;
     std::string input;
 
@@ -44,6 +45,7 @@ void header(void)
               << "           Welcome to the pedmonte's PhoneBook App!   \n"
               << "           ****************************************\n"
               << "             Commands: 1-ADD | 2-SEARCH | 3-EXIT            \n"
+              << "\n"
               << "********************************************************************************\n"
               << std::endl;
 }
@@ -58,12 +60,21 @@ int main(void)
         std::cout << "Enter a command: 1-ADD | 2-SEARCH | 3-EXIT\n";
         std::getline(std::cin, command);
 
-        if (command == "1")
+        // Check if the input stream is in a fail state (e.g., EOF or invalid input)
+        if (std::cin.eof()) {
+            std::cout << "(Ctrl+D) detected. Exiting program." << std::endl;
+            break;  // Exit the loop if EOF is detected
+        }
+        if (std::cin.fail()) {
+            std::cout << "Input error. Exiting program." << std::endl;
+            break;  // Exit the loop if there's a failure in reading input
+        }
+        if (command == "1" || command == "ADD")
         {
             Contact newContact = createContact();
             phoneBook.addContact(newContact);
         }
-        else if (command == "2")
+        else if (command == "2" || command == "SEARCH")
         {
             if (phoneBook.getContactCount() == 0)
             {
@@ -83,7 +94,7 @@ int main(void)
 
             phoneBook.displayContactDetails(index);
         }
-        else if (command == "3")
+        else if (command == "3" || command == "EXIT")
             break;
         else
             std::cout << "Invalid command!" << std::endl;

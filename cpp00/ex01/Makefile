@@ -19,7 +19,7 @@ $(TARGET): $(OBJS)
 
 # Clean object files and the executable
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(TARGET)

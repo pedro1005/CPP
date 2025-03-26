@@ -7,21 +7,30 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 # Target executable
 TARGET = megaphone
 
+# Source files and object files
+SRCS = megaphone.cpp
+OBJS = $(SRCS:.cpp=.o)
+
 # Build target
 all: $(TARGET)
 
-# Compile the source code with C++98 standard
-$(TARGET): megaphone.cpp
-	$(CC) $(CFLAGS) -o $(TARGET) megaphone.cpp
+# Compile
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-# Clean the compiled files
+# Compile object files
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean the object files
 clean:
+	rm -f $(OBJS)
+
+# Full clean
+fclean: clean
 	rm -f $(TARGET)
 
-# Clean and remove additional files
-fclean: clean
-
-# Rebuild everything from scratch
+# Rebuild
 re: fclean all
 
 .PHONY: all clean fclean re

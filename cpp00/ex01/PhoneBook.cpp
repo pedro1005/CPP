@@ -42,6 +42,7 @@ void PhoneBook::addContact(const Contact &contact) {
 }
 
 // Display list of contacts
+// not necessary std::right
 void PhoneBook::displayContacts() const {
     std::cout << std::setw(10) << "Index" << "|"
               << std::setw(10) << "First Name" << "|"
