@@ -4,12 +4,12 @@
 int main(void)
 {
     // without dynamic allocation
-    /*
-    Weapon club = Weapon("Bob's weapon");
+    
+    Weapon club = Weapon("crude spiked club");
 
     HumanA bob("Bob", club);
     bob.attack();
-    club.setType("other weapon");
+    club.setType("some other type of club");
     bob.attack();
 
     Weapon club2 = Weapon("Jim's weapon");
@@ -17,11 +17,11 @@ int main(void)
     HumanB jim("Jim");
     jim.setWeapon(club2);
     jim.attack();
-    club2.setType("other weapon");
-    jim.attack();*/
+    club2.setType("some other type of club");
+    jim.attack();
 
     // with dynamic allocation
-    Weapon  *arm = new Weapon("knife");
+    /*Weapon  *arm = new Weapon("knife");
 
     HumanA a("A", *arm);
     a.attack();
@@ -36,6 +36,6 @@ int main(void)
 
     if (arm != NULL)
         delete arm;
-
+    */
     return (0);
 }

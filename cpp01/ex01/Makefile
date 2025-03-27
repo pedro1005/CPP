@@ -17,9 +17,13 @@ $(TARGET): $(OBJS)
 %.o: %.cpp $(DEPS)
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
-# Clean object files and the executable
+# Clean object files
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS)
+
+# Full clean
+fclean: clean
+	rm -f $(TARGET)
 
 # Rebuild everything
 re: clean all

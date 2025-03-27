@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
     // Ensure s1 is not empty to avoid infinite loops or errors
     if (s1.empty())
     {
-        std::cerr << "Error: The string to replace cannot be empty." << std::endl;
+        std::cerr << "Error: string to replace cannot be empty." << std::endl;
         return 1;
     }
     // Perform the replacement

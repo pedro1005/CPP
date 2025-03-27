@@ -53,10 +53,10 @@ void    Harl::complain(std::string level)
 
     if (index == 4)
     {
-        Harl::unknown();
+        this->unknown();
         return ;
     }
-    while (index < (int)(sizeof(this->level) / sizeof(this->level[0])))
+    while (index < 4)
     {
         switch (index)
         {

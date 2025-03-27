@@ -6,10 +6,10 @@ int main()
 {
     Zombie* heapZombie;
 
-    heapZombie = Zombie::newZombie("HeapZ"); //error
+    heapZombie = newZombie("HeapZ");
     heapZombie->announce();
-    Zombie::randomChump("StackZ"); //error
-    std::cout << "Zombies doing stuff...stack should be destroyed" << std::endl;
+    randomChump("StackZ");
+    std::cout << "Zombies doing stuff...stack should be destroyed already" << std::endl;
     delete heapZombie;
     return(0);
 }

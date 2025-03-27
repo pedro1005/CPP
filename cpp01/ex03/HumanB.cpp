@@ -14,10 +14,7 @@ HumanB::HumanB(std::string name)
     this->name = name;
 }
 
-HumanB::~HumanB(void)
-{
-    //check if need to free weapon
-}
+HumanB::~HumanB(void) {}
 
 void    HumanB::attack()
 {
@@ -32,7 +29,7 @@ void    HumanB::setWeapon(Weapon *newWeapon)
     this->weapon = newWeapon;
 }
 
-void    HumanB::setWeapon(Weapon newWeapon)
+void    HumanB::setWeapon(Weapon &newWeapon)
 {
     this->weapon = &newWeapon;
 }

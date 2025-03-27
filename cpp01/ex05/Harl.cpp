@@ -22,7 +22,7 @@ void Harl::info(void)
 
 void Harl::warning(void)
 {
-    std::cout << "[WARNING]: warning message" << std::endl;
+    std::cout << "[WARNING]: warning message..." << std::endl;
 }
 
 void Harl::error(void)

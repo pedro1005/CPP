@@ -27,4 +27,4 @@ fclean: clean
 
 
 # Rebuild everything
-re: clean all
+re: fclean all

@@ -1,16 +1,15 @@
 #include "Zombie.hpp"
 
-Zombie* Zombie::zombieHorde(int N, std::string name)
+Zombie* zombieHorde(int N, std::string name)
 {
     if (N <= 0)
         return (NULL);
     
-    Zombie* horde;
+    Zombie* horde = new Zombie[N];;
     int     i;
 
-    horde = new Zombie[N];
     i = 0;
     while(i < N)
-        horde[i++].name = name;
+        new (&horde[i++]) Zombie(name);
     return (horde);
 }

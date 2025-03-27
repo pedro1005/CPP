@@ -16,7 +16,7 @@ public:
 
     void    attack(void);
     void    setWeapon(Weapon *newWeapon);
-    void    setWeapon(Weapon newWeapon);
+    void    setWeapon(Weapon &newWeapon);
 };
 
 #endif

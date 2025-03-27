@@ -2,7 +2,10 @@
 #include <iostream>
 #include <ostream>
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon) {}
+HumanA::HumanA(std::string name, Weapon &typeWeapon) : weapon(typeWeapon)
+{
+    this->name = name;
+}
 
 HumanA::~HumanA(void) {}
 

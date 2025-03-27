@@ -14,7 +14,7 @@ void replaceStr(const std::string &filename, const std::string &s1, const std::s
     while (std::getline(inputFile, line))
         fileContent += line + '\n';
     inputFile.close();
-    //std::cout << "file content:" << std::endl << fileContent << std::endl;
+    
     // Perform the replacement of all occurrences of s1 with s2 manually
     std::string result;
     size_t pos = 0;
