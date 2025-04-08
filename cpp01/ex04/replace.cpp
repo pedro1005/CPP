@@ -11,8 +11,12 @@ void replaceStr(const std::string &filename, const std::string &s1, const std::s
     // Read the content of the file into a string (fileContent)
     std::string fileContent;
     std::string line;
-    while (std::getline(inputFile, line))
-        fileContent += line + '\n';
+    bool firstLine = true;
+    while (std::getline(inputFile, line)) {
+        if (!firstLine) fileContent += '\n'; // Add newline only between lines
+        fileContent += line;
+        firstLine = false;
+    }
     inputFile.close();
     
     // Perform the replacement of all occurrences of s1 with s2 manually
