@@ -5,11 +5,11 @@ CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 # NAME
 NAME = form
 # Source files
-SRCS = AForm.cpp Bureaucrat.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
+SRCS = AForm.cpp Bureaucrat.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp Intern.cpp
 # Object files
 OBJS = $(SRCS:.cpp=.o)
 # Headers
-DEPS = AForm.hpp Bureaucrat.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+DEPS = AForm.hpp Bureaucrat.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 
 # Build the executable
 all: $(NAME)

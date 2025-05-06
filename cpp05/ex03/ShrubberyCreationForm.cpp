@@ -54,3 +54,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
         std::cerr << "Error while executing form: " << e.what() << std::endl;
     }
 }
+
+std::string ShrubberyCreationForm::getTarget() const {
+    return _target;
+}
