@@ -4,10 +4,10 @@ CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 DEBUGFLAGS = -g
 
 # NAME
-NAME = convert
-SRCS = ScalarConverter.cpp main.cpp
+NAME = serializer
+SRCS = Serializer.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
-DEPS = ScalarConverter.hpp
+DEPS = Serializer.hpp Data.hpp
 
 # Build the executable
 all: $(NAME)
