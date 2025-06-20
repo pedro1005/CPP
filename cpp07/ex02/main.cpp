@@ -42,6 +42,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
+        std::cerr << "Catch exception 1: ";
         std::cerr << e.what() << '\n';
     }
     try
@@ -50,6 +51,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
+        std::cerr << "Catch exception 2: ";
         std::cerr << e.what() << '\n';
     }
 

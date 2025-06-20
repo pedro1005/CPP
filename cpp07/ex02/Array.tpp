@@ -21,8 +21,9 @@ Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
 /*Construction by copy and assignment operator. In both cases, modifying either the
 original array or its copy after copying musn’t affect the other array.*/
 template <typename T>
-Array<T>::Array(const Array& copy) : _size(copy._size) , _array(new T(_size))
+Array<T>::Array(const Array& copy) : _size(copy._size) 
 {
+    _array = new T[_size];
     for (size_t i = 0; i < _size; ++i)
         _array[i] = copy._array[i];
 }
