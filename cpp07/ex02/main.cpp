@@ -15,10 +15,17 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
+    // SCOPE TEST -> check for memory leaks
     {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
+        Array<int> a(5);
+        for (size_t i = 0; i < a.size(); ++i)
+            a[i] = i * 10;
+        Array<int> b(a);  // copy constructor
+        // Modify original
+        a[0] = 999;
+        // Check that copy did not change
+        if (b[0] == 999)
+            std::cerr << "Error: copy constructor did shallow copy!" << std::endl;
     }
 
     for (int i = 0; i < MAX_VAL; i++)

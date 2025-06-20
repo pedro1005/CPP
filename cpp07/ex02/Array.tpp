@@ -3,20 +3,28 @@
 
 #include <iostream>
 
+/* Construction with no parameter: Creates an empty array.*/
 template <typename T>
 Array<T>::Array() : _array(NULL), _size(0) {}
 
+/*Construction with an unsigned int n as a parameter: Creates an array of n elements
+initialized by default.
+Tip: Try to compile int * a = new int(); then display *a.*/
 template <typename T>
 Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
 {
+    std::cout << "Array of size " << n << " was created." << std::endl;
     for (size_t i = 0; i < _size; ++i)
         _array[i] = T();
 }
 
+/*Construction by copy and assignment operator. In both cases, modifying either the
+original array or its copy after copying musn’t affect the other array.*/
 template <typename T>
-Array<T>::Array(const Array& copy) : _array(NULL), _size(0)
+Array<T>::Array(const Array& copy) : _size(copy._size) , _array(new T(_size))
 {
-    *this = copy;
+    for (size_t i = 0; i < _size; ++i)
+        _array[i] = copy._array[i];
 }
 
 template <typename T>
@@ -39,6 +47,9 @@ Array<T>::~Array()
     delete[] _array;
 }
 
+/*Elements can be accessed through the subscript operator: [ ].
+When accessing an element with the [ ] operator, if its index is out of bounds, an
+std::exception is thrown.*/
 template <typename T>
 T& Array<T>::operator[](size_t index)
 {
