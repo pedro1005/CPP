@@ -1,3 +1,13 @@
+/*std::stack<T>
+   └── c (std::deque<T>)
+        ├── push_back(), pop_back(), back(), begin(), end() ...
+
+MutantStack<T>
+   └── inherits std::stack<T>
+        └── c (std::deque<T>)
+             ├── begin(), end(), rbegin(), rend()   <-- now accessible via added methods
+
+*/
 template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>() {}
 
