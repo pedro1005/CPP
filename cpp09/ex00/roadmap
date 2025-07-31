@@ -1,0 +1,136 @@
+🔹 Exercise 00: Bitcoin Exchange
+📌 Objective:
+
+Parse an input file of date-value pairs and compute their value based on a historical Bitcoin price database. If an exact date isn’t found, use the closest earlier date.
+🛠️ Implementation Plan:
+
+Files:
+
+    main.cpp
+
+    BitcoinExchange.hpp / .cpp
+
+    Makefile
+
+Key Requirements:
+
+    Validate date format YYYY-MM-DD.
+
+    Value must be a float between 0 and 1000.
+
+    Use a container (e.g., std::map) to store the BTC price database.
+
+    On lookup: find exact date or closest earlier (std::map::lower_bound logic).
+
+    Error messages for:
+
+        Bad date
+
+        Negative value
+
+        Value > 1000
+
+        Invalid file
+
+🧱 Example Container Use:
+
+std::map<std::string, float> btcPriceDB;
+
+💡 Tips:
+
+    Use std::ifstream to read files.
+
+    Parse with std::getline and std::stringstream.
+
+    For fallback on closest earlier date: use map.lower_bound() and adjust if date is after the current bound.
+
+🔸 Exercise 01: RPN (Reverse Polish Notation)
+📌 Objective:
+
+Evaluate an RPN expression passed as a single string argument (e.g., "8 9 * 9 -").
+🛠️ Implementation Plan:
+
+Files:
+
+    main.cpp
+
+    RPN.hpp / .cpp
+
+    Makefile
+
+Key Requirements:
+
+    Only supports digits < 10.
+
+    Supports operators + - * /.
+
+    Must use a container (likely std::stack).
+
+    Output result to stdout; errors to stderr.
+
+🧱 Example Container Use:
+
+std::stack<int> rpnStack;
+
+💡 Tips:
+
+    Use std::istringstream to tokenize input.
+
+    Push numbers onto the stack.
+
+    On operator, pop two values, apply operator, push result.
+
+    Validate stack size before operation.
+
+    Handle division by zero, malformed input.
+
+🔷 Exercise 02: PmergeMe (Ford-Johnson Sort)
+📌 Objective:
+
+Sort a large sequence (up to 3000+) of integers using merge-insert sort (Ford-Johnson) and show timing for two different containers.
+🛠️ Implementation Plan:
+
+Files:
+
+    main.cpp
+
+    PmergeMe.hpp / .cpp
+
+    Makefile
+
+Key Requirements:
+
+    Use two containers (e.g., std::vector, std::deque).
+
+    Output:
+
+        Initial sequence
+
+        Sorted sequence
+
+        Time to sort using container A
+
+        Time to sort using container B
+
+    Implement the algorithm separately for each container.
+
+🧱 Example Container Use:
+
+std::vector<int> vecInput;
+std::deque<int> dequeInput;
+
+💡 Tips:
+
+    Use clock_gettime() or std::chrono for timing.
+
+    Ford-Johnson is tricky: starts with pairing and recursively sorting using merge and binary insertion.
+
+    Reject negative numbers or invalid input.
+
+    Can optionally allow/reject duplicates.
+
+✅ Summary of Containers Used (and Restrictions):
+Exercise	Suggested Containers	Container Reuse Restriction
+ex00	std::map	Cannot reuse in ex01 & ex02
+ex01	std::stack	Cannot reuse in ex02
+ex02	std::vector, std::deque	Final exercise
