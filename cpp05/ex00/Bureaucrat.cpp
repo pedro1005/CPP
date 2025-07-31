@@ -47,11 +47,11 @@ void Bureaucrat::decGrade() {
 
 // Exception what() definitions
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("Grade is too high!");
+	return ("Grade is too high! (<1)");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Grade is too low!";
+	return "Grade is too low! (>150)";
 }
 
 // Output stream operator overload

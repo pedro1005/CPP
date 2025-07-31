@@ -6,16 +6,8 @@
 #define MAX_VAL 750
 int main(int, char**)
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    // SCOPE TEST -> check for memory leaks
+
+	// SCOPE TEST -> check for memory leaks
     {
         Array<int> a(5);
         for (size_t i = 0; i < a.size(); ++i)
@@ -27,6 +19,16 @@ int main(int, char**)
         if (b[0] == 999)
             std::cerr << "Error: copy constructor did shallow copy!" << std::endl;
     }
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    
 
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -55,10 +57,6 @@ int main(int, char**)
         std::cerr << e.what() << '\n';
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
     delete [] mirror;
     return 0;
 }

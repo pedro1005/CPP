@@ -26,6 +26,9 @@ int main()
     MutantStack<int>::iterator init = mstack.begin();
     MutantStack<int>::iterator end = mstack.end();
 
+    ++init;
+    --init;
+    std::cout << "***Iterate MutantStack***" << std::endl;
     while (init != end)
     {
         std::cout << *init << std::endl;
@@ -45,7 +48,6 @@ int main()
     lstack.push_back(737);
     // [...]
     lstack.push_back(0);
-
     std::list<int>::iterator it = lstack.begin();
     std::list<int>::iterator ite = lstack.end();
 
@@ -54,6 +56,40 @@ int main()
         std::cout << *it << std::endl;
         ++it;
     }
+
+    std::cout << "MutantStack with chars" << std::endl;
+	MutantStack<char> letters;
+	letters.push('4');
+	letters.push('2');
+	std::cout << "Last element: " << letters.top() << std::endl; // 2
+	letters.pop();
+    letters.pop();
+	letters.push('p');
+	letters.push('e');
+	letters.push('d');
+	letters.push('m');
+    letters.push('o');
+    letters.push('n');
+    letters.push('t');
+    letters.push('e');
+	MutantStack<char>::iterator it2 = letters.begin();
+	MutantStack<char>::iterator ite2 = letters.end();
+	while (it2 != ite2)
+	{
+		std::cout << *it2;
+		++it2;
+	}
+    std::cout << std::endl;
+	std::stack<char> s2(letters);
+    while (!s2.empty())
+    {
+        std::cout << s2.top();
+        s2.pop();
+    }
+    std::cout << std::endl;
+
+    std::stack<char>::container_type::iterator it5 = letters.begin();
+    std::cout << *it5 << std::endl;
 
     return 0;
 }

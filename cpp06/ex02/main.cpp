@@ -3,7 +3,7 @@
 #include <ctime>
 
 int main() {
-    std::srand(static_cast<unsigned int>(std::time(0)));
+    std::srand((std::time(0)));
 
     Base* ptr = generate();
 

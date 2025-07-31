@@ -21,6 +21,7 @@ class AForm {
         AForm(const AForm &copy);
         virtual ~AForm(void);
 
+        //pure virtual function
         virtual void execute(Bureaucrat const &executor) const = 0;
 
 

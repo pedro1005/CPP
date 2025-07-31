@@ -1,11 +1,7 @@
 #include "iter.hpp"
-#include <iostream>
 
-template <class T>
-void printIt(const T &element)
-{
-    std::cout << element << std::endl;
-}
+
+
 
 int main()
 {

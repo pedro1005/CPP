@@ -16,6 +16,12 @@
   | `nan`    | `double` | Not-a-Number (for `double`)      |
 */
 
+/*static_cast is a C++ compile-time type cast used to convert between types when:
+
+    The conversion is well-defined and safe
+
+    Or explicitly allowed by the language rules*/
+
 ScalarConverter::ScalarConverter() {}
 ScalarConverter::ScalarConverter(const ScalarConverter& copy) { (void)copy; }
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& copy) { (void)copy; return *this; }
@@ -85,10 +91,24 @@ static void convertFromChar(const std::string& literal)
     printConversions(c, i, f, d, false, literal);
 }
 
+static void printImpossibleConversions()
+{
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    std::cout << "float: impossible" << std::endl;
+    std::cout << "double: impossible" << std::endl;
+}
+
 static void convertFromNumeric(const std::string& literal, bool isPseudoLiteral)
 {
     char* endPtr;
     double d = std::strtod(literal.c_str(), &endPtr);
+    if (*endPtr != '\0' && !isPseudoLiteral
+        && !(*endPtr == 'f' && *(endPtr + 1) == '\0'))
+    {
+        printImpossibleConversions();
+        return;
+    }
     float f = static_cast<float>(d);
     int i = static_cast<int>(d);
     char c = static_cast<char>(i);

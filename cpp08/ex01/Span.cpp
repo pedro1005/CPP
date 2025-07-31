@@ -3,6 +3,7 @@
 #include <cmath>
 
 // Constructor
+Span::Span() : _maxSize(0), _numbers() {}
 Span::Span(unsigned int N) : _maxSize(N), _numbers() {}
 
 // Copy constructor

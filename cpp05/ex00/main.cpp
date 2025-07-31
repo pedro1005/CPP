@@ -4,16 +4,16 @@
 int main() {
 	// Normal creation
 	try {
-		Bureaucrat bob("Bob", 75);
-		std::cout << bob << std::endl;
+		Bureaucrat st1("Student1", 75);
+		std::cout << st1 << std::endl;
 
 		// Increment grade
-		bob.incGrade();
-		std::cout << "After increment: " << bob << std::endl;
+		st1.incGrade();
+		std::cout << "After increment:\n" << st1 << std::endl;
 
 		// Decrement grade
-		bob.decGrade();
-		std::cout << "After decrement: " << bob << std::endl;
+		st1.decGrade();
+		std::cout << "After decrement:\n" << st1 << std::endl;
 	}
 	catch (std::exception &e) {
 		std::cerr << "Nothing to catch here..." << std::endl;
@@ -24,7 +24,7 @@ int main() {
 
 	// Grade too high test
 	try {
-		Bureaucrat alice("Alice", 0);  // Should throw
+		Bureaucrat st2("Student2", 0);  // Should throw
 		std::cout << "This should not be printed!" << std::endl;
 	}
 	catch (std::exception &e) {
@@ -33,7 +33,7 @@ int main() {
 
 	// Grade too low test
 	try {
-		Bureaucrat eve("Eve", 151);  // Should throw
+		Bureaucrat st3("Student3", 151);  // Should throw
 	}
 	catch (std::exception &e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
@@ -43,9 +43,9 @@ int main() {
 
 	// Increment beyond limit
 	try {
-		Bureaucrat topGuy("TopGuy", 1);
-		std::cout << topGuy << std::endl;
-		topGuy.incGrade();  // Should throw
+		Bureaucrat st4("Student4", 1);
+		std::cout << st4 << std::endl;
+	 	st4.incGrade();  // Should throw
 	}
 	catch (std::exception &e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
@@ -53,9 +53,9 @@ int main() {
 
 	// Decrement beyond limit
 	try {
-		Bureaucrat bottomGuy("BottomGuy", 150);
-		std::cout << bottomGuy << std::endl;
-		bottomGuy.decGrade();  // Should throw
+		Bureaucrat st5("Student5", 150);
+		std::cout << st5 << std::endl;
+		st5.decGrade();  // Should throw
 	}
 	catch (std::exception &e) {
 		std::cerr << "Exception: " << e.what() << std::endl;

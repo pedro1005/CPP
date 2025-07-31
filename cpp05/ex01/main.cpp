@@ -7,10 +7,10 @@ int main(void)
     try {
 
 		// Test: Attempt to create a Form with invalid grade (should throw)
-        //Form badForm("BadForm", 0, 150);
-		//Form badForm("BadForm", 151, 200);
-		//Form badForm("BadForm", 1, 0);
-		//Form badForm("BadForm", 1, 151);
+        //Form badForm1("BadForm1", 0, 150);
+		//Form badForm2("BadForm2", 151, 200);
+		//Form badForm3("BadForm3", 1, 0);
+		//Form badForm4("BadForm4", 1, 151);
 
         Bureaucrat bob("Bob", 50);
 
@@ -20,6 +20,8 @@ int main(void)
         std::cout << std::endl;
 
         // Test: Bob signs contract B (should succeed)
+        std::cout << "Bob's grade: " << bob.getGrade() << std::endl;
+        std::cout << "Contract B required grade to sign: " << contractB.getGradeSign() << std::endl;
         bob.signForm(contractB);
         std::cout << contractB << std::endl;
 

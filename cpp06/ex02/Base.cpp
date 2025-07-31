@@ -10,16 +10,10 @@ Base::~Base() {}
 // Randomly generate an instance of A, B, or C
 Base* generate() {
     
-    int r = std::rand() % 3;
-    if (r == 0) {
-        std::cout << "Generated: A" << std::endl;
-        return new A;
-    } else if (r == 1) {
-        std::cout << "Generated: B" << std::endl;
-        return new B;
-    } else {
-        std::cout << "Generated: C" << std::endl;
-        return new C;
+    switch (std::rand() % 3) {
+        case 0: std::cout << "Generated: A\n"; return new A;
+        case 1: std::cout << "Generated: B\n"; return new B;
+        default: std::cout << "Generated: C\n"; return new C;
     }
 }
 
